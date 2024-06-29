@@ -3,9 +3,11 @@ package com.proz.pokeapi;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import com.proz.pokeapi.usecases.GetAPokemonUseCase;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -32,6 +34,19 @@ public class PokeApiApplication {
     } catch (IOException | InterruptedException e) {
       // Retorna uma lista vazia
       return new ArrayList<Pokemon>();
+    }
+  }
+
+  // Rota /pokemon com parametro index de pokemon
+  @GetMapping("/pokemon/{index}")
+  public Pokemon getAPokemon(@PathVariable("index") short index) {
+    try {
+      GetAPokemonUseCase useCase = new GetAPokemonUseCase();
+
+      return useCase.execute(index);
+    } catch (IOException | InterruptedException e) {
+      // Retorna um objeto vazio
+      return new Pokemon();
     }
   }
 }
