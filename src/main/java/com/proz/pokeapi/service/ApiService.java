@@ -1,7 +1,7 @@
-package org.example.service;
+package com.proz.pokeapi.service;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.example.dto.Pokemon;
+import com.proz.pokeapi.dto.Pokemon;
 
 import java.io.IOException;
 import java.net.URI;
