@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.proz.pokeapi.dto.Pokemon;
 import com.proz.pokeapi.usecases.GetAllPokemonsUseCase;
 
-import jakarta.websocket.server.PathParam;
-
 @SpringBootApplication
 @RestController
 public class PokeApiApplication {
