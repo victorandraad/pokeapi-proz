@@ -16,7 +16,7 @@ public class ApiService {
     public Pokemon getPokemonData(short index) throws IOException, InterruptedException {
         HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = HttpRequest.newBuilder()
-            .uri(URI.create("https://pokeapi.co/api/v2/pokemon/" + index)).build();
+                .uri(URI.create("https://pokeapi.co/api/v2/pokemon/" + index)).build();
 
         HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
 

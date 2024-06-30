@@ -2,24 +2,24 @@ package com.proz.pokeapi.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.List;
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Pokemon {
     private String name;
-
-    @JsonProperty("types")
     private List<PokeType> types;
+    private String type;
 
     public String getName() {
         return name;
     }
 
     public String getType() {
-        if (types != null && !types.isEmpty()) {
-            return types.get(0).getType().getName();
-        }
-        return null;
+        return type;
+    }
+
+    public void setTypes(List<PokeType> types) {
+        this.type = types.get(0).getType().getName();
+        this.types = null;
     }
 
     @JsonIgnoreProperties(ignoreUnknown = true)
@@ -41,4 +41,3 @@ public class Pokemon {
 
     }
 }
-
